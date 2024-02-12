@@ -4,7 +4,7 @@ const fs = require('fs')
 const core = require('@actions/core')
 const inputFile = core.getInput('file', { required: true })
 const inputLine = core.getInput('line', { required: true })
-const inputString = core.getInput('string', { required: true })
+const inputString = core.getInput('string', { required: true }, { trimWhitespace: false })
 
 const main = async () => {
   // 指定されたファイルから特定行を読み込む
