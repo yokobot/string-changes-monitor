@@ -2,18 +2,15 @@ name: 'string changes monitor.'
 description: 'Monitors for changes to specific strings.'
 author: 'yokobot - Takao Yokoyama'
 inputs:
-  strings_array:
-    description: 'Strings to monitor.'
+  file:
+    description: 'File to monitor.'
     required: true
-  #strings:
-  #  description: 'Strings to monitor.'
-  #  required: true
-  #file:
-  #  description: 'File to monitor.'
-  #  required: true
-  #line:
-  #  description: 'Number of lines to monitor.'
-  #  required: true
+  line:
+    description: 'Number of lines to monitor.'
+    required: true
+  string:
+    description: 'String to monitor.'
+    required: true
 #outputs:
 runs:
   using: 'node20'

@@ -2,21 +2,20 @@
 
 const fs = require('fs')
 const core = require('@actions/core')
-const myInput = core.getInput('strings_array', { required: true })
-const myArray = JSON.parse(myInput)
+const inputFile = core.getInput('file', { required: true })
+const inputLine = core.getInput('line', { required: true })
+const inputString = core.getInput('string', { required: true })
 
 const main = async () => {
-  for (let i = 0; i < myArray.length; i++) {
-    // 指定されたファイルから特定行を読み込む
-    const data = fs.readFileSync(myArray[i].file, 'utf8')
-    const line = data.split('\n')[myArray[i].line - 1]
+  // 指定されたファイルから特定行を読み込む
+  const data = fs.readFileSync(inputFile, 'utf8')
+  const line = data.split('\n')[inputLine - 1]
 
-    // 文字列を比較して、一致したらメッセージ、一致しなかったらエラーメッセージを出力
-    if (line === myArray[i].strings) {
-      console.log('Matched')
-    } else {
-      throw new Error('Not matched')
-    }
+  // 文字列を比較して、一致したらメッセージ、一致しなかったらエラーメッセージを出力
+  if (line === inputString) {
+    console.log('Matched')
+  } else {
+    throw new Error('Not matched')
   }
 }
 
