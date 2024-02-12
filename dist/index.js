@@ -26602,6 +26602,8 @@ const main = async () => {
   // 指定されたファイルから特定行を読み込む
   const data = fs.readFileSync(inputFile, 'utf8')
   const line = data.split('\n')[inputLine - 1]
+  console.log(`Read line: ${line}`)
+  console.logq(`Input string: ${inputString}`)
 
   // 文字列を比較して、一致したらメッセージ、一致しなかったらエラーメッセージを出力
   if (line === inputString) {
