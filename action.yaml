@@ -1,6 +1,7 @@
 name: 'string changes monitor.'
 description: 'Monitors for changes to specific strings.'
 author: 'yokobot - Takao Yokoyama'
+
 inputs:
   file:
     description: 'File to monitor.'
@@ -9,12 +10,13 @@ inputs:
     description: 'Number of lines to monitor.'
     required: true
   string:
-    description: 'String to monitor.'
+    description: 'Expected string.'
     required: true
-#outputs:
+
 runs:
   using: 'node20'
   main: 'dist/index.js'
+
 branding:
   icon: 'shield'
   color: 'green'

@@ -26599,17 +26599,22 @@ const inputLine = core.getInput('line', { required: true })
 const inputString = core.getInput('string', { required: true, trimWhitespace: false })
 
 const main = async () => {
-  // 指定されたファイルから特定行を読み込む
-  const data = fs.readFileSync(inputFile, 'utf8')
-  const line = data.split('\n')[inputLine - 1]
-  console.log(`Read line: ${line}`)
-  console.log(`Input string: ${inputString}`)
+  try {
+    // Reads a specific line from a specified file.
+    const data = fs.readFileSync(inputFile, 'utf8')
+    const line = data.split('\n')[inputLine - 1]
+    core.info(`Read line: ${line}`)
+    core.info(`Input string: ${inputString}`)
 
-  // 文字列を比較して、一致したらメッセージ、一致しなかったらエラーメッセージを出力
-  if (line === inputString) {
-    console.log('Matched')
-  } else {
-    throw new Error('Not matched')
+    // Compares a input string with a specific line.
+    if (line === inputString) {
+      core.info('String is matched')
+    } else {
+      core.error('String is not matched!!!')
+    }
+  }
+  catch (error) {
+    core.setFailed(error.message)
   }
 }
 
