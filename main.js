@@ -20,8 +20,7 @@ const main = async () => {
     } else {
       core.error('String is not matched!!!')
     }
-  }
-  catch (error) {
+  } catch (error) {
     core.setFailed(error.message)
   }
 }
