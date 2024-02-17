@@ -27,7 +27,13 @@ To get started, you can use this minimal example:
 
 ```
 on:
-  push:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - main
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -36,7 +42,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: string check
-        uses: yokobot/string-changes-monitor@v0.1.0
+        uses: yokobot/string-changes-monitor@v0.1.1
         with:
           file: overlays/dev/kustomization.yaml
           line: 13
