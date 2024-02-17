@@ -26609,7 +26609,7 @@ const main = async () => {
   if (line === inputString) {
     core.info('String is matched')
   } else {
-    core.error('String is not matched!!!')
+    core.setFailed('String is not matched!!!')
   }
 }
 
