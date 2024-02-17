@@ -8,7 +8,7 @@ To get started, you can use this minimal example:
 
 ```
 - name: actions test
-  uses: yokobot/string-changes-monitor@0.1.0
+  uses: yokobot/string-changes-monitor@0.1.2
   with:
       file: overlays/dev/kustomization.yaml
       line: 13
@@ -42,7 +42,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: string check
-        uses: yokobot/string-changes-monitor@v0.1.1
+        uses: yokobot/string-changes-monitor@v0.1.2
         with:
           file: overlays/dev/kustomization.yaml
           line: 13
